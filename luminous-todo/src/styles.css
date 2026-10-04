@@ -349,6 +349,14 @@ h1 {
   text-transform: uppercase;
 }
 
+.credit {
+  margin: 10px 0 0;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .alert {
   margin: 0 0 16px;
   padding: 12px 14px;
