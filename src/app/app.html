@@ -1,0 +1,96 @@
+<div class="stage">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+  <div class="grain"></div>
+
+  <main class="shell">
+    <header class="hero">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Lumina</span>
+      </div>
+      <p class="kicker">{{ greeting() }}</p>
+      <h1>Make space<br />for what remains.</h1>
+    </header>
+
+    <section class="panel" aria-label="Todo list">
+      <div class="meter">
+        <svg viewBox="0 0 44 44" aria-hidden="true">
+          <circle class="track" cx="22" cy="22" r="18"></circle>
+          <circle
+            class="fill"
+            cx="22"
+            cy="22"
+            r="18"
+            [attr.stroke-dasharray]="ring().c"
+            [attr.stroke-dashoffset]="ring().offset"
+          ></circle>
+        </svg>
+        <div>
+          <strong>{{ progress() }}%</strong>
+          <span>{{ remaining() }} left · {{ completed() }} done</span>
+        </div>
+      </div>
+
+      <form class="composer" (submit)="$event.preventDefault(); add()">
+        <input
+          type="text"
+          [value]="draft()"
+          (input)="draft.set($any($event.target).value)"
+          placeholder="What deserves your attention?"
+          maxlength="120"
+          aria-label="New task"
+          autocomplete="off"
+        />
+        <button type="submit" [disabled]="!draft().trim()">Add</button>
+      </form>
+
+      <nav class="filters" aria-label="Filters">
+        <button type="button" [class.on]="filter() === 'all'" (click)="setFilter('all')">All</button>
+        <button type="button" [class.on]="filter() === 'active'" (click)="setFilter('active')">Open</button>
+        <button type="button" [class.on]="filter() === 'done'" (click)="setFilter('done')">Done</button>
+      </nav>
+
+      @if (visible().length === 0) {
+        <div class="empty">
+          <div class="moon"></div>
+          <p>{{ total() === 0 ? 'A quiet list. Start with one true thing.' : 'Nothing here in this view.' }}</p>
+        </div>
+      } @else {
+        <ul class="list">
+          @for (todo of visible(); track todo.id) {
+            <li class="row" [class.done]="todo.done">
+              <button class="check" type="button" (click)="toggle(todo.id)" [attr.aria-label]="todo.done ? 'Mark as open' : 'Mark as done'">
+                <span></span>
+              </button>
+
+              @if (editingId() === todo.id) {
+                <input
+                  class="edit"
+                  [value]="editDraft()"
+                  (input)="editDraft.set($any($event.target).value)"
+                  (keydown.enter)="saveEdit()"
+                  (keydown.escape)="cancelEdit()"
+                  (blur)="saveEdit()"
+                  aria-label="Edit task"
+                />
+              } @else {
+                <button class="text" type="button" (dblclick)="startEdit(todo)">{{ todo.text }}</button>
+              }
+
+              <button class="ghost" type="button" (click)="startEdit(todo)" aria-label="Edit">Edit</button>
+              <button class="ghost danger" type="button" (click)="remove(todo.id)" aria-label="Delete">Del</button>
+            </li>
+          }
+        </ul>
+      }
+
+      @if (completed() > 0) {
+        <footer class="foot">
+          <button type="button" (click)="clearDone()">Clear completed</button>
+        </footer>
+      }
+    </section>
+  </main>
+</div>
