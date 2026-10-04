@@ -341,6 +341,59 @@ h1 {
   font-weight: 600;
 }
 
+.store {
+  margin: 14px 0 0;
+  color: var(--mute);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.alert {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 154, 162, 0.35);
+  background: rgba(255, 154, 162, 0.08);
+  color: #ffd2d5;
+  font-size: 13px;
+}
+
+.journal {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(14, 16, 24, 0.42);
+}
+
+.journal h2 {
+  margin: 0 0 12px;
+  font-family: Syne, sans-serif;
+  font-size: 16px;
+}
+
+.journal ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.journal li {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--mute);
+}
+
+.journal strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+
 @keyframes drift {
   0%,
   100% {

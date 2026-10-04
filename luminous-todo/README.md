@@ -4,13 +4,19 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
-To start a local development server, run:
+Todos are persisted in SQLite via a small Node API.
 
 ```bash
-ng serve
+npm run api
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+In another terminal:
+
+```bash
+npm start
+```
+
+Open `http://localhost:4200/`. The Angular proxy forwards `/api` to `http://localhost:3001`. The database file is `data/lumina.db`.
 
 ## Code scaffolding
 

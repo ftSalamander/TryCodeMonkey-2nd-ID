@@ -12,7 +12,12 @@
       </div>
       <p class="kicker">{{ greeting() }}</p>
       <h1>Make space<br />for what remains.</h1>
+      <p class="store">Saved to SQLite</p>
     </header>
+
+    @if (error()) {
+      <p class="alert">{{ error() }}</p>
+    }
 
     <section class="panel" aria-label="Todo list">
       <div class="meter">
@@ -92,5 +97,19 @@
         </footer>
       }
     </section>
+
+    @if (events().length > 0) {
+      <aside class="journal" aria-label="Activity log">
+        <h2>Every change, kept</h2>
+        <ol>
+          @for (event of events(); track event.id) {
+            <li>
+              <strong>{{ label(event.action) }}</strong>
+              <span>{{ event.detail || 'task' }}</span>
+            </li>
+          }
+        </ol>
+      </aside>
+    }
   </main>
 </div>
