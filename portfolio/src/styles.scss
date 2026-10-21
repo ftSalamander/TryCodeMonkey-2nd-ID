@@ -1,0 +1,111 @@
+@use 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --bg: #0b0514;
+  --ink: #f7f3ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(255, 45, 149, 0.22), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(0, 229, 255, 0.16), transparent 50%),
+    var(--bg);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Syne', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section {
+  padding: 6.5rem 0;
+}
+
+.section-kicker {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ff2d95;
+  margin-bottom: 0.7rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+}
+
+.section-head {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.22s;
+}
+.delay-3 {
+  animation-delay: 0.34s;
+}
+.delay-4 {
+  animation-delay: 0.46s;
+}
+.delay-5 {
+  animation-delay: 0.58s;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+::selection {
+  background: #ff2d95;
+  color: #fff;
+}

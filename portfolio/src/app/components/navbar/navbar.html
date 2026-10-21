@@ -1,0 +1,14 @@
+<nav class="site-nav" [class.scrolled]="scrolled">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="brand" href="#home" (click)="close()">Araf</a>
+    <button class="nav-toggle" type="button" [attr.aria-expanded]="open" (click)="toggle()">
+      <i class="bi" [class.bi-list]="!open" [class.bi-x-lg]="open"></i>
+    </button>
+    <ul class="nav-links" [class.open]="open">
+      <li><a href="#about" (click)="close()">About</a></li>
+      <li><a href="#skills" (click)="close()">Skills</a></li>
+      <li><a href="#projects" (click)="close()">Work</a></li>
+      <li><a class="nav-cta" href="#contact" (click)="close()">Contact</a></li>
+    </ul>
+  </div>
+</nav>

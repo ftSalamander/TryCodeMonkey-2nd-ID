@@ -1,0 +1,34 @@
+<section class="skills section" id="skills">
+  <div class="container">
+    <div class="section-head text-center" appReveal>
+      <p class="section-kicker">Skills Matrix</p>
+      <h2 class="section-title">My stack, built for speed and spectacle.</h2>
+    </div>
+
+    <div class="row g-4">
+      @for (group of groups; track group.category; let i = $index) {
+        <div class="col-md-6" appReveal>
+          <article class="skill-card" [style.--accent]="group.accent" [style.animationDelay]="i * 80 + 'ms'">
+            <div class="skill-head">
+              <span class="skill-icon"><i [class]="'bi ' + group.icon"></i></span>
+              <h3>{{ group.category }}</h3>
+            </div>
+            <div class="skill-list">
+              @for (skill of group.skills; track skill.name) {
+                <div class="skill-row">
+                  <div class="d-flex justify-content-between">
+                    <span class="badge skill-badge">{{ skill.name }}</span>
+                    <span class="skill-pct">{{ skill.level }}%</span>
+                  </div>
+                  <div class="bar">
+                    <span [style.width.%]="skill.level"></span>
+                  </div>
+                </div>
+              }
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

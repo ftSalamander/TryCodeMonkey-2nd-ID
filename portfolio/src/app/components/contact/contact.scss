@@ -1,0 +1,107 @@
+.contact-copy {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 1.05rem;
+  margin-bottom: 1.6rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+
+  a {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #12081f;
+    background: linear-gradient(135deg, #ff2d95, #00e5ff);
+    font-size: 1.15rem;
+    transition: transform 0.25s ease, filter 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px) rotate(-8deg);
+      filter: saturate(1.3);
+    }
+  }
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+}
+
+.float-field {
+  position: relative;
+  margin-bottom: 1.15rem;
+
+  input,
+  textarea {
+    width: 100%;
+    background: rgba(8, 4, 16, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0.9rem;
+    color: #fff;
+    padding: 1.15rem 1rem 0.55rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  label {
+    position: absolute;
+    left: 1rem;
+    top: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    transition: 0.18s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #ff2d95;
+    box-shadow: 0 0 0 4px rgba(255, 45, 149, 0.18);
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    top: 0.28rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #00e5ff;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #12081f;
+  background: linear-gradient(90deg, #b8ff3c, #00e5ff);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    color: #12081f;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px rgba(184, 255, 60, 0.28);
+  }
+}
+
+.thanks {
+  margin: 1rem 0 0;
+  color: #b8ff3c;
+  font-weight: 600;
+}
